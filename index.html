@@ -5,186 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma – Portfolio</title>
   <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET). Download resume as PDF." />
+  <meta name="theme-color" content="#00f0ff" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+
   <style>
-    /* ====== THEME ====== */
-    :root {
-      --bg: #0b0f1e;
-      --panel: rgba(20, 28, 48, 0.75);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --brand: #38bdf8;
-      --brand2: #22d3ee;
-      --glow: 0 0 10px var(--brand), 0 0 20px var(--brand2);
+    :root{
+      --bg:#050510; --text:#e0f7fa;
+      --neon1:#00f0ff; --neon2:#ff00ff; --neon3:#39ff14;
     }
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(120deg, #0b0f1e, #10172a);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-    a {text-decoration:none; color:inherit;}
-
-    /* ====== HERO ====== */
-    .hero {
-      min-height: 55vh; /* reduced from 70vh */
-      padding: 20px 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at top, #1e293b, #0b0f1e 70%);
-      animation: aurora 15s infinite alternate;
-    }
-    @keyframes aurora {
-      0% {background-position: 0% 50%;}
-      100% {background-position: 100% 50%;}
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      background: linear-gradient(to right, var(--brand), var(--brand2));
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: var(--glow);
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-    .buttons {margin-top: 20px; display: flex; gap: 14px; flex-wrap: wrap;}
-    .btn {
-      padding: 10px 18px;
-      border-radius: 12px;
-      background: var(--panel);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 8px rgba(0,0,0,.5);
-      transition: all .3s;
-      font-size: .95rem;
-    }
-    .btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: var(--glow);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg,var(--brand),var(--brand2));
-      color: #0b1020;
-      font-weight: 700;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family: 'Consolas', 'Courier New', monospace;
+      background: radial-gradient(circle at top, #0a0a1a, #050510 80%);
+      color:var(--text);
+      line-height:1.5;
+      min-height:100vh;
     }
 
-    /* ====== SECTIONS ====== */
-    section {
-      max-width: 1100px;
-      margin: 24px auto;   /* reduced */
-      padding: 16px 12px;  /* reduced */
-      position: relative;
+    a{color:var(--neon1);text-decoration:none;transition:.2s}
+    a:hover{color:var(--neon2);}
+
+    .container{max-width:1100px;margin:0 auto;padding:20px;}
+
+    /* Header / Hero */
+    header{padding:40px 0;text-align:center;}
+    .typing{
+      font-size:2.2rem;font-weight:700;
+      color:var(--neon1);
+      border-right:2px solid var(--neon1);
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation:typing 3s steps(30,end) forwards, blink .8s infinite;
+      margin:0 auto;
     }
-    section:first-of-type {
-      margin-top: 12px; /* extra compact below hero */
+    @keyframes typing{to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
+
+    .role{margin-top:8px;font-size:1rem;color:var(--neon3)}
+
+    .buttons{margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+    .btn{
+      padding:10px 18px;
+      border:1px solid var(--neon1);
+      border-radius:8px;
+      background:transparent;
+      color:var(--text);
+      text-transform:uppercase;
+      font-size:.9rem;
+      letter-spacing:1px;
+      transition:.3s;
+      text-shadow:0 0 6px var(--neon1);
+      box-shadow:0 0 8px var(--neon1);
+    }
+    .btn:hover{
+      background:var(--neon1);color:#000;
+      box-shadow:0 0 16px var(--neon1),0 0 28px var(--neon2);
     }
 
-    /* Animated divider between sections */
-    section:not(:last-of-type)::after {
-      content: "";
-      display: block;
-      height: 2px;
-      width: 80%;
-      margin: 28px auto 0;
-      background: linear-gradient(90deg, transparent, var(--brand), var(--brand2), transparent);
-      opacity: 0.7;
-      border-radius: 2px;
-      background-size: 200% auto;
-      animation: moveGlow 3s linear infinite;
+    /* Section Cards */
+    section{
+      background:rgba(10,10,30,.5);
+      border:1px solid var(--neon1);
+      border-radius:12px;
+      padding:20px;
+      margin:20px 0;
+      box-shadow:0 0 12px rgba(0,240,255,.4);
+      transition:.3s;
     }
-    @keyframes moveGlow {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
+    section:hover{box-shadow:0 0 20px var(--neon2)}
 
-    h2 {
-      font-size: 1.6rem;
-      color: var(--brand2);
-      margin-bottom: 14px;
-      text-align: center;
-    }
-    .card {
-      background: var(--panel);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.45);
-      transition: all .3s ease;
-    }
-    .card:hover {transform: translateY(-3px); box-shadow: var(--glow);}
+    h2{color:var(--neon2);margin-bottom:12px;}
 
-    /* ====== SKILLS ====== */
-    .skills {display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:12px;}
-    .pill {
-      background: linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#0b1020;
-      padding:6px 14px;
-      border-radius:999px;
-      font-size: .85rem;
-      font-weight:600;
-      box-shadow:0 0 6px rgba(0,0,0,.4);
-      animation: pulseGlow 3s ease-in-out infinite;
-      transition: transform .3s, box-shadow .3s;
+    .pill{
+      display:inline-block;
+      background:rgba(0,240,255,.1);
+      border:1px solid var(--neon3);
+      color:var(--neon3);
+      padding:6px 10px;
+      border-radius:6px;
+      margin:6px 6px 0 0;
+      font-size:.85rem;
+      text-shadow:0 0 8px var(--neon3);
+      transition:.2s;
     }
-    .pill:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 14px rgba(56,189,248,1), 0 0 20px rgba(34,211,238,0.9);
-    }
-    @keyframes pulseGlow {
-      0%   { box-shadow: 0 0 6px rgba(56,189,248,0.5), 0 0 10px rgba(34,211,238,0.4); }
-      50%  { box-shadow: 0 0 12px rgba(56,189,248,0.9), 0 0 20px rgba(34,211,238,0.7); }
-      100% { box-shadow: 0 0 6px rgba(56,189,248,0.5), 0 0 10px rgba(34,211,238,0.4); }
-    }
+    .pill:hover{background:var(--neon3);color:#000}
 
-    /* ====== PROJECTS ====== */
-    .projects {
-      display:grid; grid-template-columns: 1fr; gap:14px;
+    /* Projects Grid */
+    .projects{display:grid;grid-template-columns:1fr;gap:16px;}
+    @media(min-width:700px){.projects{grid-template-columns:1fr 1fr}}
+    .project{
+      border:1px solid var(--neon2);
+      padding:16px;
+      border-radius:10px;
+      box-shadow:0 0 10px var(--neon2);
+      transition:.3s;
     }
-    @media(min-width:720px) {.projects{grid-template-columns:1fr 1fr; gap:16px;}}
-    .project {
-      background: var(--panel);
-      border-radius: 14px;
-      padding: 16px;
-      transition: .3s;
-    }
-    .project:hover {box-shadow: var(--glow);}
-    .project h3 {margin-bottom:6px; color: var(--brand);}
-    .badge {font-size:.78rem; color: var(--muted);}
-    .project p {margin-top:8px; color:#cbd5e1; font-size:.88rem;}
+    .project:hover{box-shadow:0 0 20px var(--neon1);transform:translateY(-3px)}
+    .project h3{color:var(--neon1);margin-bottom:6px;}
 
-    /* ====== FOOTER ====== */
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: .85rem;
-      color: var(--muted);
-    }
+    footer{text-align:center;margin:30px 0;font-size:.85rem;color:#aaa;}
   </style>
 </head>
 <body>
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Sawan Sharma</h1>
-    <p>Software Test Engineer (SDET) · Selenium · Appium · API Testing</p>
-    <div class="buttons">
-      <a class="btn primary" href="SawanSharma_Resume.pdf" download>⬇️ Download Resume</a>
-      <a class="btn" href="mailto:sharmasawan125@gmail.com">✉️ Email</a>
-      <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
-    </div>
-  </div>
+  <div class="container">
+    <header>
+      <div class="typing">> Sawan Sharma | SDET Portfolio</div>
+      <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
+      <div class="buttons">
+        <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
+        <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
+        <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
+      </div>
+    </header>
 
-  <!-- ABOUT -->
-  <section>
-    <h2>About Me</h2>
-    <div class="card">
-      <p>SDET with 8+ years across manual and automation testing. Focused on Appium (Android/iOS), Selenium WebDriver, TestNG, REST Assured, CI with Azure Pipelines, and Allure reporting. Passionate about building stable frameworks and catching flaky tests before they ship.</p>
-      <div class="skills">
+    <section>
+      <h2>About</h2>
+      <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting. Passionate about stable frameworks and catching flaky tests before they ship.</p>
+      <div>
         <span class="pill">Selenium</span>
         <span class="pill">Appium</span>
         <span class="pill">TestNG</span>
@@ -193,31 +132,41 @@
         <span class="pill">Allure</span>
         <span class="pill">Java</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROJECTS -->
-  <section>
-    <h2>Highlighted Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Appium Test Framework - Kotak Securities</h3>
-        <div class="badge">Java · TestNG · Android & iOS</div>
-        <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+    <section>
+      <h2>Details</h2>
+      <ul>
+        <li><strong>Location:</strong> India</li>
+        <li><strong>Mobile:</strong> +91-7387125154</li>
+        <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
+        <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Highlighted Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Appium Test Framework - Kotak Securities</h3>
+          <div class="badge">Java · TestNG · Android & iOS</div>
+          <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+        </div>
+        <div class="project">
+          <h3>Web Automation Framework</h3>
+          <div class="badge">Selenium · TestNG · CI/CD</div>
+          <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
+        </div>
       </div>
-      <div class="project">
-        <h3>API Test Automation Suite</h3>
-        <div class="badge">REST Assured · Postman · Swagger</div>
-        <p>Automated REST API validations with schema checks, CI integration, and regression coverage ensuring API reliability and scalability.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    © <span id="year"></span> Sawan Sharma · Built with ❤️ on GitHub Pages
-  </footer>
+    <footer>
+      © <span id="year"></span> Sawan Sharma · Dark Neon Portfolio
+    </footer>
+  </div>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
