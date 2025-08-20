@@ -18,11 +18,11 @@
       color:var(--text);
       line-height:1.5;
       min-height:100vh;
-      position:relative;
       overflow-x:hidden;
+      position:relative;
     }
 
-    /* Canvases stacked */
+    /* ==== Background Layers ==== */
     canvas.bg{
       position:fixed;
       top:0;left:0;
@@ -31,19 +31,13 @@
       opacity:0;
       transition:opacity 1s ease-in-out;
     }
-    canvas.bg.active{
-      opacity:1;
-      z-index:-1;
-    }
+    canvas.bg.active{opacity:1;z-index:-1;}
 
-    a{color:var(--neon1);text-decoration:none;transition:.2s}
-    a:hover{color:var(--neon2);}
-    .container{max-width:1100px;margin:0 auto;padding:20px;}
-
-    /* Header / Hero */
-    header{padding:40px 0;text-align:center;}
+    /* ==== Header / Hero ==== */
+    header{padding:40px 20px;text-align:center;}
     .typing{
-      font-size:2.2rem;font-weight:700;
+      font-size:2rem;
+      font-weight:700;
       color:var(--neon1);
       border-right:2px solid var(--neon1);
       white-space:nowrap;
@@ -51,10 +45,11 @@
       width:0;
       animation:typing 3s steps(30,end) forwards, blink .8s infinite;
       margin:0 auto;
+      text-shadow:0 0 12px var(--neon1);
     }
     @keyframes typing{to{width:100%}}
     @keyframes blink{50%{border-color:transparent}}
-    .role{margin-top:8px;font-size:1rem;color:var(--neon3)}
+    .role{margin-top:8px;font-size:1rem;color:var(--neon3);text-shadow:0 0 8px var(--neon3);}
     .buttons{margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
     .btn{
       padding:10px 18px;
@@ -62,7 +57,6 @@
       border-radius:8px;
       background:transparent;
       color:var(--text);
-      text-transform:uppercase;
       font-size:.9rem;
       letter-spacing:1px;
       transition:.3s;
@@ -75,18 +69,19 @@
       box-shadow:0 0 16px var(--neon1),0 0 28px var(--neon2);
     }
 
-    /* Section Cards */
+    /* ==== Section Cards ==== */
     section{
       background:rgba(10,10,30,.6);
       border:1px solid var(--neon1);
       border-radius:12px;
-      padding:20px;
-      margin:20px 0;
+      padding:16px 20px;
+      margin:16px auto;
+      max-width:900px;
       box-shadow:0 0 12px rgba(0,240,255,.4);
       transition:.3s;
     }
     section:hover{box-shadow:0 0 20px var(--neon2)}
-    h2{color:var(--neon2);margin-bottom:12px;}
+    h2{color:var(--neon2);margin-bottom:12px;text-shadow:0 0 8px var(--neon2);}
     .pill{
       display:inline-block;
       background:rgba(0,240,255,.1);
@@ -101,7 +96,7 @@
     }
     .pill:hover{background:var(--neon3);color:#000}
 
-    /* Projects Grid */
+    /* ==== Projects Grid ==== */
     .projects{display:grid;grid-template-columns:1fr;gap:16px;}
     @media(min-width:700px){.projects{grid-template-columns:1fr 1fr}}
     .project{
@@ -112,67 +107,101 @@
       transition:.3s;
     }
     .project:hover{box-shadow:0 0 20px var(--neon1);transform:translateY(-3px)}
-    .project h3{color:var(--neon1);margin-bottom:6px;}
-    footer{text-align:center;margin:30px 0;font-size:.85rem;color:#aaa;}
+    .project h3{color:var(--neon1);margin-bottom:6px;text-shadow:0 0 8px var(--neon1);}
+
+    /* ==== Floating Nav Bar ==== */
+    nav{
+      position:fixed;
+      bottom:20px;left:50%;
+      transform:translateX(-50%);
+      background:rgba(10,10,30,0.85);
+      border:1px solid var(--neon1);
+      border-radius:12px;
+      display:flex;
+      gap:20px;
+      padding:10px 18px;
+      box-shadow:0 0 12px var(--neon1);
+      z-index:100;
+    }
+    nav a{
+      color:var(--neon1);
+      font-size:.9rem;
+      text-shadow:0 0 6px var(--neon1);
+      transition:.2s;
+    }
+    nav a:hover{color:var(--neon2);}
+
+    footer{text-align:center;margin:40px 0 80px 0;font-size:.85rem;color:#aaa;}
   </style>
 </head>
 <body>
 
+  <!-- Background canvases -->
+  <canvas id="matrix" class="bg active"></canvas>
+  <canvas id="grid" class="bg"></canvas>
+  <canvas id="stars" class="bg"></canvas>
 
-  <div class="container">
-    <header>
-      <div class="typing">> Sawan Sharma | SDET </div>
-      <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
-      <div class="buttons">
-        <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
-        <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
-        <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
+  <header>
+    <div class="typing">> Sawan Sharma | SDET </div>
+    <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
+    <div class="buttons">
+      <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
+      <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
+      <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
+    <div>
+      <span class="pill">Selenium</span>
+      <span class="pill">Appium</span>
+      <span class="pill">TestNG</span>
+      <span class="pill">REST Assured</span>
+      <span class="pill">Azure DevOps</span>
+      <span class="pill">Allure</span>
+      <span class="pill">Java</span>
+    </div>
+  </section>
+
+  <section id="details">
+    <h2>Details</h2>
+    <ul>
+      <li><strong>Location:</strong> India</li>
+      <li><strong>Mobile:</strong> +91-7387125154</li>
+      <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
+      <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Appium Test Framework - Kotak Securities</h3>
+        <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
       </div>
-    </header>
-
-    <section>
-      <h2>About</h2>
-      <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
-      <div>
-        <span class="pill">Selenium</span>
-        <span class="pill">Appium</span>
-        <span class="pill">TestNG</span>
-        <span class="pill">REST Assured</span>
-        <span class="pill">Azure DevOps</span>
-        <span class="pill">Allure</span>
-        <span class="pill">Java</span>
+      <div class="project">
+        <h3>Web Automation Framework</h3>
+        <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h2>Details</h2>
-      <ul>
-        <li><strong>Location:</strong> India</li>
-        <li><strong>Mobile:</strong> +91-7387125154</li>
-        <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
-        <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
-      </ul>
-    </section>
+  <footer>
+    © <span id="year"></span> Sawan Sharma · Hacker Neon Portfolio
+  </footer>
 
-    <section>
-      <h2>Highlighted Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Appium Test Framework - Kotak Securities</h3>
-          <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
-        </div>
-        <div class="project">
-          <h3>Web Automation Framework</h3>
-          <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Sawan Sharma · Dark Neon Portfolio
-    </footer>
-  </div>
+  <!-- Floating Nav -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#details">Details</a>
+    <a href="#projects">Projects</a>
+    <a href="#">Contact</a>
+    <a id="toggleBg" href="#">⚡ Mode</a>
+  </nav>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -189,16 +218,14 @@
         c.width=window.innerWidth;
         c.height=window.innerHeight;
       });
-      initMatrix();
-      initStars();
+      initMatrix(); initStars();
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
     // ===== Matrix Rain =====
-    const letters = "アァカサタナハマヤャラワABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const fontSize = 14;
-    let columns, drops;
+    const letters = "アァカサタナハマヤABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const fontSize = 14; let columns, drops;
     function initMatrix(){
       columns = Math.floor(matrixCanvas.width / fontSize);
       drops = Array(columns).fill(1);
@@ -227,21 +254,15 @@
       ctxG.lineWidth = 1;
       ctxG.shadowColor = '#00f0ff';
       ctxG.shadowBlur = 12;
-
       ctxG.beginPath();
       for(let x=-gridCanvas.width; x<gridCanvas.width*2; x+=spacing){
-        ctxG.moveTo(x+offset,0);
-        ctxG.lineTo(x+offset,gridCanvas.height);
+        ctxG.moveTo(x+offset,0); ctxG.lineTo(x+offset,gridCanvas.height);
       }
       for(let y=0;y<gridCanvas.height;y+=spacing){
-        ctxG.moveTo(0,y+offset);
-        ctxG.lineTo(gridCanvas.width,y+offset);
+        ctxG.moveTo(0,y+offset); ctxG.lineTo(gridCanvas.width,y+offset);
       }
       ctxG.stroke();
-
-      offset += 0.5;
-      if(offset>spacing) offset=0;
-
+      offset += 0.5; if(offset>spacing) offset=0;
       requestAnimationFrame(drawGrid);
     }
     drawGrid();
@@ -263,14 +284,11 @@
       ctxS.fillRect(0,0,starsCanvas.width,starsCanvas.height);
       ctxS.fillStyle="#fff";
       for(let star of stars){
-        star.z -= 2;
-        if(star.z<=0) star.z=starsCanvas.width;
+        star.z -= 2; if(star.z<=0) star.z=starsCanvas.width;
         const sx=(star.x-starsCanvas.width/2)*(starsCanvas.width/star.z)+starsCanvas.width/2;
         const sy=(star.y-starsCanvas.height/2)*(starsCanvas.width/star.z)+starsCanvas.height/2;
         const r = (1-star.z/starsCanvas.width)*2;
-        ctxS.beginPath();
-        ctxS.arc(sx,sy,r,0,2*Math.PI);
-        ctxS.fill();
+        ctxS.beginPath(); ctxS.arc(sx,sy,r,0,2*Math.PI); ctxS.fill();
       }
       requestAnimationFrame(drawStars);
     }
@@ -280,7 +298,8 @@
     const toggleBtn = document.getElementById('toggleBg');
     const canvases = [matrixCanvas, gridCanvas, starsCanvas];
     let current = 0;
-    toggleBtn.addEventListener('click', ()=>{
+    toggleBtn.addEventListener('click', e=>{
+      e.preventDefault();
       canvases[current].classList.remove('active');
       current = (current+1)%canvases.length;
       canvases[current].classList.add('active');
