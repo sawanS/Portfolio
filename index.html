@@ -4,23 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma – Portfolio</title>
-  <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET)." />
   <style>
-    :root {
-      --primary: #2563eb;   /* Professional blue */
-      --secondary: #475569; /* Neutral text */
-      --bg: #f9fafb;        /* Light background */
-      --card-bg: #ffffff;
-      --border: #e2e8f0;
-    }
-
+    /* ===== Base Styles ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--secondary);
+      background: #0f172a; /* dark navy */
+      color: #f1f5f9; /* light text */
       line-height: 1.6;
+      transition: background .4s, color .4s;
     }
 
     .container {
@@ -29,25 +21,54 @@
       padding: 20px;
     }
 
+    /* ===== Animations ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards;
+    }
+    .delay-1 { animation-delay: 0.3s; }
+    .delay-2 { animation-delay: 0.6s; }
+    .delay-3 { animation-delay: 0.9s; }
+
+    /* Typing animation */
+    .typing {
+      font-size: 2.5rem;
+      color: #60a5fa;
+      white-space: nowrap;
+      border-right: 3px solid #60a5fa;
+      width: 0;
+      overflow: hidden;
+      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #60a5fa; }
+    }
+
+    /* ===== Header ===== */
     header {
       text-align: center;
-      padding: 40px 20px 20px;
-    }
-    header h1 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 8px;
+      padding: 60px 20px 30px;
     }
     header p {
-      font-size: 1rem;
-      color: var(--secondary);
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-top: 12px;
     }
 
     .buttons {
-      margin-top: 20px;
+      margin-top: 25px;
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
     }
     .btn {
@@ -55,52 +76,61 @@
       border-radius: 6px;
       font-size: .95rem;
       text-decoration: none;
-      transition: .3s;
+      transition: transform .3s, background .3s, color .3s;
     }
     .btn-primary {
-      background: var(--primary);
-      color: #fff;
+      background: #60a5fa;
+      color: #0f172a;
     }
     .btn-primary:hover {
-      background: #1d4ed8;
+      background: #3b82f6;
+      transform: translateY(-3px);
     }
     .btn-outline {
-      border: 1px solid var(--primary);
-      color: var(--primary);
+      border: 1px solid #60a5fa;
+      color: #60a5fa;
     }
     .btn-outline:hover {
-      background: var(--primary);
-      color: #fff;
+      background: #60a5fa;
+      color: #0f172a;
+      transform: translateY(-3px);
     }
 
+    /* ===== Section ===== */
     section {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+      animation: fadeInUp 0.8s forwards;
     }
     h2 {
-      font-size: 1.3rem;
-      color: var(--primary);
-      margin-bottom: 12px;
+      font-size: 1.4rem;
+      color: #60a5fa;
+      margin-bottom: 14px;
     }
 
-    /* Skills */
+    /* ===== Skills ===== */
     .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
     .skill {
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: #0f172a;
+      border: 1px solid #334155;
       padding: 6px 12px;
       border-radius: 6px;
       font-size: .9rem;
+      transition: background .3s, transform .3s;
+    }
+    .skill:hover {
+      background: #334155;
+      transform: scale(1.05);
     }
 
-    /* Projects */
+    /* ===== Projects ===== */
     .projects {
       display: grid;
       grid-template-columns: 1fr;
@@ -110,22 +140,23 @@
       .projects { grid-template-columns: 1fr 1fr; }
     }
     .project {
-      border: 1px solid var(--border);
+      border: 1px solid #334155;
       border-radius: 8px;
       padding: 16px;
-      background: var(--bg);
-      transition: .3s;
+      background: #0f172a;
+      transition: transform .3s, border .3s;
     }
     .project:hover {
-      background: #eef2ff;
-      border-color: var(--primary);
+      transform: translateY(-5px);
+      border-color: #60a5fa;
     }
     .project h3 {
-      color: var(--primary);
+      color: #60a5fa;
       font-size: 1rem;
       margin-bottom: 8px;
     }
 
+    /* ===== Footer ===== */
     footer {
       text-align: center;
       margin: 30px 0;
@@ -136,10 +167,11 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Sawan Sharma</h1>
-      <p>Software Test Engineer (SDET) · Automation · Selenium · Appium</p>
-      <div class="buttons">
+    <header class="fade-in">
+      <h1 class="typing">Sawan Sharma | SDET</h1>
+      <p>Software Test Engineer · Automation · Selenium · Appium</p>
+
+      <div class="buttons fade-in delay-1">
         <a class="btn btn-primary" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
         <a class="btn btn-outline" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
         <a class="btn btn-outline" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
@@ -147,12 +179,12 @@
       </div>
     </header>
 
-    <section>
+    <section class="fade-in delay-1">
       <h2>About Me</h2>
       <p>Software Development Engineer in Test with 8+ years of experience across manual and automation testing. Skilled in building robust automation frameworks using Appium, Selenium WebDriver, TestNG, REST Assured, and CI/CD pipelines with Azure DevOps. Experienced in reporting with Allure and test strategy planning.</p>
     </section>
 
-    <section>
+    <section class="fade-in delay-2">
       <h2>Skills</h2>
       <div class="skills">
         <div class="skill">Selenium</div>
@@ -165,7 +197,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in delay-3">
       <h2>Highlighted Projects</h2>
       <div class="projects">
         <div class="project">
@@ -179,7 +211,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="fade-in delay-3">
       <h2>Contact</h2>
       <p><strong>Location:</strong> India</p>
       <p><strong>Mobile:</strong> +91-7387125154</p>
