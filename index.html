@@ -5,259 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma – Portfolio</title>
   <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET)." />
-  <meta name="theme-color" content="#00f0ff" />
   <style>
     :root {
-      --bg: #050510;
-      --text: #e0f7fa;
-      --neon1: #00f0ff;
-      --neon2: #ff00ff;
-      --neon3: #39ff14;
+      --primary: #2563eb;   /* Professional blue */
+      --secondary: #475569; /* Neutral text */
+      --bg: #f9fafb;        /* Light background */
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Consolas', 'Courier New', monospace;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
       background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      color: var(--secondary);
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Neon Glow Effect */
-    h1, h2, h3 {
-      text-shadow: 0 0 8px var(--neon1), 0 0 12px var(--neon2);
-    }
-
-    a {
-      color: var(--neon1);
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    a:hover {
-      color: var(--neon2);
-      text-shadow: 0 0 8px var(--neon2);
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Header */
     header {
       text-align: center;
-      padding: 50px 20px;
+      padding: 40px 20px 20px;
     }
-    .typing {
-      font-size: 2.5rem;
-      color: var(--neon1);
-      border-right: 3px solid var(--neon1);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      margin: 0 auto;
-      animation: typing 4s steps(40, end) forwards, blink .8s infinite;
+    header h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 8px;
     }
-    @keyframes typing { to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
-
-    .role {
-      margin-top: 10px;
-      color: var(--neon3);
-      font-size: 1.1rem;
-      text-shadow: 0 0 8px var(--neon3);
+    header p {
+      font-size: 1rem;
+      color: var(--secondary);
     }
 
-    /* Buttons */
     .buttons {
       margin-top: 20px;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
     .btn {
-      padding: 12px 20px;
-      border: 1px solid var(--neon1);
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text);
-      text-transform: uppercase;
-      font-size: .9rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      text-shadow: 0 0 6px var(--neon1);
-      box-shadow: 0 0 10px var(--neon1);
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: .95rem;
+      text-decoration: none;
       transition: .3s;
     }
-    .btn:hover {
-      background: var(--neon1);
-      color: #000;
-      box-shadow: 0 0 18px var(--neon2), 0 0 28px var(--neon3);
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
     }
 
-    /* Sections */
     section {
-      background: rgba(10, 10, 30, .7);
-      border: 1px solid var(--neon1);
-      border-radius: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 20px;
       margin: 20px 0;
-      box-shadow: 0 0 14px rgba(0,240,255,.4);
-      transition: .3s;
     }
-    section:hover { box-shadow: 0 0 20px var(--neon2); }
+    h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
 
-    h2 { color: var(--neon2); margin-bottom: 12px; }
-
-    .pill {
-      display: inline-block;
-      background: rgba(0,240,255,.1);
-      border: 1px solid var(--neon3);
-      color: var(--neon3);
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill {
+      background: var(--bg);
+      border: 1px solid var(--border);
       padding: 6px 12px;
       border-radius: 6px;
-      margin: 6px 6px 0 0;
-      font-size: .85rem;
-      text-shadow: 0 0 6px var(--neon3);
-      transition: .2s;
+      font-size: .9rem;
     }
-    .pill:hover { background: var(--neon3); color: #000; }
 
     /* Projects */
-    .projects { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    @media(min-width: 700px) { .projects { grid-template-columns: 1fr 1fr; } }
-
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media(min-width: 700px) {
+      .projects { grid-template-columns: 1fr 1fr; }
+    }
     .project {
-      border: 1px solid var(--neon2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px var(--neon2);
+      background: var(--bg);
       transition: .3s;
     }
     .project:hover {
-      box-shadow: 0 0 20px var(--neon1);
-      transform: translateY(-3px);
+      background: #eef2ff;
+      border-color: var(--primary);
     }
-    .project h3 { color: var(--neon1); margin-bottom: 8px; }
+    .project h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
 
-    /* Footer */
     footer {
       text-align: center;
       margin: 30px 0;
       font-size: .85rem;
-      color: #aaa;
-    }
-
-    /* Animated Background (Hacker vibes) */
-    canvas.bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-      background: #000;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
-  <canvas class="bg" id="matrix"></canvas>
-
   <div class="container">
     <header>
-      <div class="typing">> Sawan Sharma | SDET</div>
-      <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
+      <h1>Sawan Sharma</h1>
+      <p>Software Test Engineer (SDET) · Automation · Selenium · Appium</p>
       <div class="buttons">
-        <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
-        <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
-        <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
+        <a class="btn btn-primary" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
+        <a class="btn btn-outline" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
+        <a class="btn btn-outline" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
       </div>
     </header>
 
     <section>
-      <h2>About</h2>
-      <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
-      <div>
-        <span class="pill">Selenium</span>
-        <span class="pill">Appium</span>
-        <span class="pill">TestNG</span>
-        <span class="pill">REST Assured</span>
-        <span class="pill">Azure DevOps</span>
-        <span class="pill">Allure</span>
-        <span class="pill">Java</span>
-      </div>
+      <h2>About Me</h2>
+      <p>Software Development Engineer in Test with 8+ years of experience across manual and automation testing. Skilled in building robust automation frameworks using Appium, Selenium WebDriver, TestNG, REST Assured, and CI/CD pipelines with Azure DevOps. Experienced in reporting with Allure and test strategy planning.</p>
     </section>
 
     <section>
-      <h2>Details</h2>
-      <ul>
-        <li><strong>Location:</strong> India</li>
-        <li><strong>Mobile:</strong> +91-7387125154</li>
-        <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
-        <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
-      </ul>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill">Selenium</div>
+        <div class="skill">Appium</div>
+        <div class="skill">TestNG</div>
+        <div class="skill">REST Assured</div>
+        <div class="skill">Azure DevOps</div>
+        <div class="skill">Allure Reports</div>
+        <div class="skill">Java</div>
+      </div>
     </section>
 
     <section>
       <h2>Highlighted Projects</h2>
       <div class="projects">
         <div class="project">
-          <h3>Appium Test Framework - Kotak Securities</h3>
-          <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+          <h3>Mobile Automation Framework</h3>
+          <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
         </div>
         <div class="project">
           <h3>Web Automation Framework</h3>
-          <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
+          <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
         </div>
       </div>
     </section>
 
+    <section>
+      <h2>Contact</h2>
+      <p><strong>Location:</strong> India</p>
+      <p><strong>Mobile:</strong> +91-7387125154</p>
+      <p><strong>Email:</strong> sharmasawan125@gmail.com</p>
+      <p><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</p>
+    </section>
+
     <footer>
-      © <span id="year"></span> Sawan Sharma · Hacker Neon Portfolio
+      © <span id="year"></span> Sawan Sharma
     </footer>
   </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Hacker Matrix Background
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = "アァカサタナハマヤABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#0f0";
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 40);
-    window.addEventListener('resize', () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
   </script>
 </body>
 </html>
