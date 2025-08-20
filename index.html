@@ -4,10 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma – Portfolio</title>
-  <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET). Download resume as PDF." />
+  <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET)." />
   <meta name="theme-color" content="#00f0ff" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
-
   <style>
     :root{
       --bg:#050510; --text:#e0f7fa;
@@ -16,10 +14,19 @@
     *{margin:0;padding:0;box-sizing:border-box}
     body{
       font-family: 'Consolas', 'Courier New', monospace;
-      background: radial-gradient(circle at top, #0a0a1a, #050510 80%);
+      background:var(--bg);
       color:var(--text);
       line-height:1.5;
       min-height:100vh;
+      position:relative;
+      z-index:1;
+    }
+    canvas#matrix {
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:#000;
+      z-index:-1;
     }
 
     a{color:var(--neon1);text-decoration:none;transition:.2s}
@@ -65,7 +72,7 @@
 
     /* Section Cards */
     section{
-      background:rgba(10,10,30,.5);
+      background:rgba(10,10,30,.6);
       border:1px solid var(--neon1);
       border-radius:12px;
       padding:20px;
@@ -108,6 +115,7 @@
   </style>
 </head>
 <body>
+  <canvas id="matrix"></canvas>
   <div class="container">
     <header>
       <div class="typing">> Sawan Sharma | SDET Portfolio</div>
@@ -149,12 +157,10 @@
       <div class="projects">
         <div class="project">
           <h3>Appium Test Framework - Kotak Securities</h3>
-          <div class="badge">Java · TestNG · Android & iOS</div>
           <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
         </div>
         <div class="project">
           <h3>Web Automation Framework</h3>
-          <div class="badge">Selenium · TestNG · CI/CD</div>
           <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
         </div>
       </div>
@@ -166,7 +172,45 @@
   </div>
 
   <script>
+    // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Matrix Rain Background
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = 'アァカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0,0,0,0.05)';
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      ctx.fillStyle = '#39ff14'; // neon green
+      ctx.font = fontSize + 'px monospace';
+
+      for(let i=0;i<drops.length;i++){
+        const text = letters.charAt(Math.floor(Math.random()*letters.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
+          drops[i]=0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33);
+
+    // Adjust on resize
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
   </script>
 </body>
 </html>
