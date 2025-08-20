@@ -27,7 +27,8 @@
 
     /* ====== HERO ====== */
     .hero {
-      min-height: 100vh;
+      min-height: 70vh; /* reduced from 100vh */
+      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -75,9 +76,29 @@
     /* ====== SECTIONS ====== */
     section {
       max-width: 1100px;
-      margin: 80px auto;
-      padding: 40px 20px;
+      margin: 40px auto;
+      padding: 20px 16px;
+      position: relative;
     }
+
+    /* Animated divider between sections */
+    section:not(:last-of-type)::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 80%;
+      margin: 32px auto 0;
+      background: linear-gradient(90deg, transparent, var(--brand), var(--brand2), transparent);
+      opacity: 0.7;
+      border-radius: 2px;
+      background-size: 200% auto;
+      animation: moveGlow 3s linear infinite;
+    }
+    @keyframes moveGlow {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
     h2 {
       font-size: 1.8rem;
       color: var(--brand2);
@@ -87,24 +108,40 @@
     .card {
       background: var(--panel);
       border-radius: 20px;
-      padding: 20px;
+      padding: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,.5);
       transition: all .3s ease;
     }
     .card:hover {transform: translateY(-4px); box-shadow: var(--glow);}
-    .skills {display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+
+    /* ====== SKILLS ====== */
+    .skills {display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:16px;}
     .pill {
       background: linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#0b1020; padding:8px 16px; border-radius:999px;
-      font-size: .9rem; font-weight:600;
-      box-shadow:0 2px 8px rgba(0,0,0,.3);
+      color:#0b1020;
+      padding:8px 16px;
+      border-radius:999px;
+      font-size: .9rem;
+      font-weight:600;
+      box-shadow:0 0 6px rgba(0,0,0,.4);
+      animation: pulseGlow 3s ease-in-out infinite;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .pill:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(56,189,248,1), 0 0 24px rgba(34,211,238,0.9);
+    }
+    @keyframes pulseGlow {
+      0%   { box-shadow: 0 0 6px rgba(56,189,248,0.5), 0 0 10px rgba(34,211,238,0.4); }
+      50%  { box-shadow: 0 0 12px rgba(56,189,248,0.9), 0 0 20px rgba(34,211,238,0.7); }
+      100% { box-shadow: 0 0 6px rgba(56,189,248,0.5), 0 0 10px rgba(34,211,238,0.4); }
     }
 
     /* ====== PROJECTS ====== */
     .projects {
-      display:grid; grid-template-columns: 1fr; gap:20px;
+      display:grid; grid-template-columns: 1fr; gap:16px;
     }
-    @media(min-width:720px) {.projects{grid-template-columns:1fr 1fr;}}
+    @media(min-width:720px) {.projects{grid-template-columns:1fr 1fr; gap:20px;}}
     .project {
       background: var(--panel);
       border-radius: 16px;
@@ -165,9 +202,9 @@
         <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
       </div>
       <div class="project">
-        <h3>API Test Automation Suite</h3>
-        <div class="badge">REST Assured · Postman · Swagger</div>
-        <p>Automated REST API validations with schema checks, CI integration, and regression coverage ensuring API reliability and scalability.</p>
+        <h3>Website Test Automation Suite</h3>
+        <div class="badge">Selenium · Core Java · Manual Testing</div>
+        <p>Automated Website, CI integration, and regression coverage ensuring UI and Functionality works fine as per business requirement.</p>
       </div>
     </div>
   </section>
