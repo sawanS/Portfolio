@@ -20,8 +20,9 @@
       min-height:100vh;
       position:relative;
       z-index:1;
+      overflow-x:hidden;
     }
-    canvas#matrix {
+    canvas#grid {
       position:fixed;
       top:0;left:0;
       width:100%;height:100%;
@@ -115,11 +116,11 @@
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
+  <canvas id="grid"></canvas>
   <div class="container">
     <header>
-      <div class="typing"> Sawan Sharma | SDET </div>
-      <div class="role">Software Test Engineer · Automation · Selenium · Appium · Core Java · Flutter · Python Basics · TestNG · Agile methodology</div>
+      <div class="typing">> Sawan Sharma | SDET Portfolio</div>
+      <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
       <div class="buttons">
         <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
         <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
@@ -175,42 +176,44 @@
     // Footer Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Matrix Rain Background
-    const canvas = document.getElementById('matrix');
+    // Tron Grid Background
+    const canvas = document.getElementById('grid');
     const ctx = canvas.getContext('2d');
 
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = 'アァカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = 'rgba(0,0,0,0.05)';
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-
-      ctx.fillStyle = '#39ff14'; // neon green
-      ctx.font = fontSize + 'px monospace';
-
-      for(let i=0;i<drops.length;i++){
-        const text = letters.charAt(Math.floor(Math.random()*letters.length));
-        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-
-        if(drops[i]*fontSize > canvas.height && Math.random()>0.975){
-          drops[i]=0;
-        }
-        drops[i]++;
-      }
-    }
-    setInterval(draw, 33);
-
-    // Adjust on resize
-    window.addEventListener('resize', () => {
-      canvas.height = window.innerHeight;
+    function resizeCanvas(){
       canvas.width = window.innerWidth;
-    });
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let offset = 0;
+    function drawGrid(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      const spacing = 60;
+      ctx.strokeStyle = '#00f0ff';
+      ctx.lineWidth = 1;
+      ctx.shadowColor = '#00f0ff';
+      ctx.shadowBlur = 12;
+
+      ctx.beginPath();
+      for(let x=-canvas.width; x<canvas.width*2; x+=spacing){
+        ctx.moveTo(x+offset, 0);
+        ctx.lineTo(x+offset, canvas.height);
+      }
+      for(let y=0; y<canvas.height; y+=spacing){
+        ctx.moveTo(0, y+offset);
+        ctx.lineTo(canvas.width, y+offset);
+      }
+      ctx.stroke();
+
+      offset += 0.5;
+      if(offset > spacing) offset = 0;
+
+      requestAnimationFrame(drawGrid);
+    }
+    drawGrid();
   </script>
 </body>
 </html>
