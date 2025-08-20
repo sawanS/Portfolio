@@ -7,302 +7,256 @@
   <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET)." />
   <meta name="theme-color" content="#00f0ff" />
   <style>
-    :root{
-      --bg:#050510; --text:#e0f7fa;
-      --neon1:#00f0ff; --neon2:#ff00ff; --neon3:#39ff14;
-    }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:'Consolas','Courier New',monospace;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.5;
-      min-height:100vh;
-      overflow-x:hidden;
-      position:relative;
+    :root {
+      --bg: #050510;
+      --text: #e0f7fa;
+      --neon1: #00f0ff;
+      --neon2: #ff00ff;
+      --neon3: #39ff14;
     }
 
-    /* ==== Background Layers ==== */
-    canvas.bg{
-      position:fixed;
-      top:0;left:0;
-      width:100%;height:100%;
-      z-index:-2;
-      opacity:0;
-      transition:opacity 1s ease-in-out;
-    }
-    canvas.bg.active{opacity:1;z-index:-1;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ==== Header / Hero ==== */
-    header{padding:40px 20px;text-align:center;}
-    .typing{
-      font-size:2rem;
-      font-weight:700;
-      color:var(--neon1);
-      border-right:2px solid var(--neon1);
-      white-space:nowrap;
-      overflow:hidden;
-      width:0;
-      animation:typing 3s steps(30,end) forwards, blink .8s infinite;
-      margin:0 auto;
-      text-shadow:0 0 12px var(--neon1);
-    }
-    @keyframes typing{to{width:100%}}
-    @keyframes blink{50%{border-color:transparent}}
-    .role{margin-top:8px;font-size:1rem;color:var(--neon3);text-shadow:0 0 8px var(--neon3);}
-    .buttons{margin-top:20px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
-    .btn{
-      padding:10px 18px;
-      border:1px solid var(--neon1);
-      border-radius:8px;
-      background:transparent;
-      color:var(--text);
-      font-size:.9rem;
-      letter-spacing:1px;
-      transition:.3s;
-      text-shadow:0 0 6px var(--neon1);
-      box-shadow:0 0 8px var(--neon1);
-      cursor:pointer;
-    }
-    .btn:hover{
-      background:var(--neon1);color:#000;
-      box-shadow:0 0 16px var(--neon1),0 0 28px var(--neon2);
+    body {
+      font-family: 'Consolas', 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ==== Section Cards ==== */
-    section{
-      background:rgba(10,10,30,.6);
-      border:1px solid var(--neon1);
-      border-radius:12px;
-      padding:16px 20px;
-      margin:16px auto;
-      max-width:900px;
-      box-shadow:0 0 12px rgba(0,240,255,.4);
-      transition:.3s;
+    /* Neon Glow Effect */
+    h1, h2, h3 {
+      text-shadow: 0 0 8px var(--neon1), 0 0 12px var(--neon2);
     }
-    section:hover{box-shadow:0 0 20px var(--neon2)}
-    h2{color:var(--neon2);margin-bottom:12px;text-shadow:0 0 8px var(--neon2);}
-    .pill{
-      display:inline-block;
-      background:rgba(0,240,255,.1);
-      border:1px solid var(--neon3);
-      color:var(--neon3);
-      padding:6px 10px;
-      border-radius:6px;
-      margin:6px 6px 0 0;
-      font-size:.85rem;
-      text-shadow:0 0 8px var(--neon3);
-      transition:.2s;
-    }
-    .pill:hover{background:var(--neon3);color:#000}
 
-    /* ==== Projects Grid ==== */
-    .projects{display:grid;grid-template-columns:1fr;gap:16px;}
-    @media(min-width:700px){.projects{grid-template-columns:1fr 1fr}}
-    .project{
-      border:1px solid var(--neon2);
-      padding:16px;
-      border-radius:10px;
-      box-shadow:0 0 10px var(--neon2);
-      transition:.3s;
+    a {
+      color: var(--neon1);
+      text-decoration: none;
+      transition: 0.3s;
     }
-    .project:hover{box-shadow:0 0 20px var(--neon1);transform:translateY(-3px)}
-    .project h3{color:var(--neon1);margin-bottom:6px;text-shadow:0 0 8px var(--neon1);}
+    a:hover {
+      color: var(--neon2);
+      text-shadow: 0 0 8px var(--neon2);
+    }
 
-    /* ==== Floating Nav Bar ==== */
-    nav{
-      position:fixed;
-      bottom:20px;left:50%;
-      transform:translateX(-50%);
-      background:rgba(10,10,30,0.85);
-      border:1px solid var(--neon1);
-      border-radius:12px;
-      display:flex;
-      gap:20px;
-      padding:10px 18px;
-      box-shadow:0 0 12px var(--neon1);
-      z-index:100;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    nav a{
-      color:var(--neon1);
-      font-size:.9rem;
-      text-shadow:0 0 6px var(--neon1);
-      transition:.2s;
-    }
-    nav a:hover{color:var(--neon2);}
 
-    footer{text-align:center;margin:40px 0 80px 0;font-size:.85rem;color:#aaa;}
+    /* Header */
+    header {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .typing {
+      font-size: 2.5rem;
+      color: var(--neon1);
+      border-right: 3px solid var(--neon1);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      margin: 0 auto;
+      animation: typing 4s steps(40, end) forwards, blink .8s infinite;
+    }
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .role {
+      margin-top: 10px;
+      color: var(--neon3);
+      font-size: 1.1rem;
+      text-shadow: 0 0 8px var(--neon3);
+    }
+
+    /* Buttons */
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn {
+      padding: 12px 20px;
+      border: 1px solid var(--neon1);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text);
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-shadow: 0 0 6px var(--neon1);
+      box-shadow: 0 0 10px var(--neon1);
+      transition: .3s;
+    }
+    .btn:hover {
+      background: var(--neon1);
+      color: #000;
+      box-shadow: 0 0 18px var(--neon2), 0 0 28px var(--neon3);
+    }
+
+    /* Sections */
+    section {
+      background: rgba(10, 10, 30, .7);
+      border: 1px solid var(--neon1);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 14px rgba(0,240,255,.4);
+      transition: .3s;
+    }
+    section:hover { box-shadow: 0 0 20px var(--neon2); }
+
+    h2 { color: var(--neon2); margin-bottom: 12px; }
+
+    .pill {
+      display: inline-block;
+      background: rgba(0,240,255,.1);
+      border: 1px solid var(--neon3);
+      color: var(--neon3);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin: 6px 6px 0 0;
+      font-size: .85rem;
+      text-shadow: 0 0 6px var(--neon3);
+      transition: .2s;
+    }
+    .pill:hover { background: var(--neon3); color: #000; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media(min-width: 700px) { .projects { grid-template-columns: 1fr 1fr; } }
+
+    .project {
+      border: 1px solid var(--neon2);
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--neon2);
+      transition: .3s;
+    }
+    .project:hover {
+      box-shadow: 0 0 20px var(--neon1);
+      transform: translateY(-3px);
+    }
+    .project h3 { color: var(--neon1); margin-bottom: 8px; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin: 30px 0;
+      font-size: .85rem;
+      color: #aaa;
+    }
+
+    /* Animated Background (Hacker vibes) */
+    canvas.bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: #000;
+    }
   </style>
 </head>
 <body>
+  <canvas class="bg" id="matrix"></canvas>
 
-  <!-- Background canvases -->
-  <canvas id="matrix" class="bg active"></canvas>
-  <canvas id="grid" class="bg"></canvas>
-  <canvas id="stars" class="bg"></canvas>
-
-  <header>
-    <div class="typing">> Sawan Sharma | SDET </div>
-    <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
-    <div class="buttons">
-      <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
-      <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
-      <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
-    </div>
-  </header>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
-    <div>
-      <span class="pill">Selenium</span>
-      <span class="pill">Appium</span>
-      <span class="pill">TestNG</span>
-      <span class="pill">REST Assured</span>
-      <span class="pill">Azure DevOps</span>
-      <span class="pill">Allure</span>
-      <span class="pill">Java</span>
-    </div>
-  </section>
-
-  <section id="details">
-    <h2>Details</h2>
-    <ul>
-      <li><strong>Location:</strong> India</li>
-      <li><strong>Mobile:</strong> +91-7387125154</li>
-      <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
-      <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>Highlighted Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>Appium Test Framework - Kotak Securities</h3>
-        <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+  <div class="container">
+    <header>
+      <div class="typing">> Sawan Sharma | SDET</div>
+      <div class="role">Software Test Engineer · Automation · Selenium · Appium · TestNG</div>
+      <div class="buttons">
+        <a class="btn" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
+        <a class="btn" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
+        <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
       </div>
-      <div class="project">
-        <h3>Web Automation Framework</h3>
-        <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
+      <div>
+        <span class="pill">Selenium</span>
+        <span class="pill">Appium</span>
+        <span class="pill">TestNG</span>
+        <span class="pill">REST Assured</span>
+        <span class="pill">Azure DevOps</span>
+        <span class="pill">Allure</span>
+        <span class="pill">Java</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    © <span id="year"></span> Sawan Sharma · Hacker Neon Portfolio
-  </footer>
+    <section>
+      <h2>Details</h2>
+      <ul>
+        <li><strong>Location:</strong> India</li>
+        <li><strong>Mobile:</strong> +91-7387125154</li>
+        <li><strong>Email:</strong> sharmasawan125@gmail.com</li>
+        <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
+      </ul>
+    </section>
 
-  <!-- Floating Nav -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#details">Details</a>
-    <a href="#projects">Projects</a>
-    <a href="#">Contact</a>
-    <a id="toggleBg" href="#">⚡ Mode</a>
-  </nav>
+    <section>
+      <h2>Highlighted Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Appium Test Framework - Kotak Securities</h3>
+          <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+        </div>
+        <div class="project">
+          <h3>Web Automation Framework</h3>
+          <p>Reusable Selenium-based framework supporting cross-browser runs, Azure DevOps pipelines, and integrated reporting dashboards.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Sawan Sharma · Hacker Neon Portfolio
+    </footer>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const matrixCanvas = document.getElementById('matrix');
-    const gridCanvas = document.getElementById('grid');
-    const starsCanvas = document.getElementById('stars');
-    const ctxM = matrixCanvas.getContext('2d');
-    const ctxG = gridCanvas.getContext('2d');
-    const ctxS = starsCanvas.getContext('2d');
+    // Hacker Matrix Background
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
 
-    function resizeCanvas(){
-      [matrixCanvas,gridCanvas,starsCanvas].forEach(c=>{
-        c.width=window.innerWidth;
-        c.height=window.innerHeight;
-      });
-      initMatrix(); initStars();
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 
-    // ===== Matrix Rain =====
     const letters = "アァカサタナハマヤABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const fontSize = 14; let columns, drops;
-    function initMatrix(){
-      columns = Math.floor(matrixCanvas.width / fontSize);
-      drops = Array(columns).fill(1);
-    }
-    function drawMatrix(){
-      ctxM.fillStyle = "rgba(0,0,0,0.08)";
-      ctxM.fillRect(0,0,matrixCanvas.width,matrixCanvas.height);
-      ctxM.fillStyle = "#0f0";
-      ctxM.font = fontSize+"px monospace";
-      for(let i=0;i<drops.length;i++){
-        const text = letters.charAt(Math.floor(Math.random()*letters.length));
-        ctxM.fillText(text,i*fontSize,drops[i]*fontSize);
-        if(drops[i]*fontSize > matrixCanvas.height && Math.random()>0.975) drops[i]=0;
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0f0";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
         drops[i]++;
       }
-      requestAnimationFrame(drawMatrix);
     }
-    initMatrix(); drawMatrix();
 
-    // ===== Tron Grid =====
-    let offset = 0;
-    function drawGrid(){
-      ctxG.clearRect(0,0,gridCanvas.width,gridCanvas.height);
-      const spacing = 60;
-      ctxG.strokeStyle = '#00f0ff';
-      ctxG.lineWidth = 1;
-      ctxG.shadowColor = '#00f0ff';
-      ctxG.shadowBlur = 12;
-      ctxG.beginPath();
-      for(let x=-gridCanvas.width; x<gridCanvas.width*2; x+=spacing){
-        ctxG.moveTo(x+offset,0); ctxG.lineTo(x+offset,gridCanvas.height);
-      }
-      for(let y=0;y<gridCanvas.height;y+=spacing){
-        ctxG.moveTo(0,y+offset); ctxG.lineTo(gridCanvas.width,y+offset);
-      }
-      ctxG.stroke();
-      offset += 0.5; if(offset>spacing) offset=0;
-      requestAnimationFrame(drawGrid);
-    }
-    drawGrid();
-
-    // ===== Starfield =====
-    let stars=[];
-    function initStars(){
-      stars=[];
-      for(let i=0;i<200;i++){
-        stars.push({
-          x:Math.random()*starsCanvas.width,
-          y:Math.random()*starsCanvas.height,
-          z:Math.random()*starsCanvas.width
-        });
-      }
-    }
-    function drawStars(){
-      ctxS.fillStyle="rgba(0,0,0,0.3)";
-      ctxS.fillRect(0,0,starsCanvas.width,starsCanvas.height);
-      ctxS.fillStyle="#fff";
-      for(let star of stars){
-        star.z -= 2; if(star.z<=0) star.z=starsCanvas.width;
-        const sx=(star.x-starsCanvas.width/2)*(starsCanvas.width/star.z)+starsCanvas.width/2;
-        const sy=(star.y-starsCanvas.height/2)*(starsCanvas.width/star.z)+starsCanvas.height/2;
-        const r = (1-star.z/starsCanvas.width)*2;
-        ctxS.beginPath(); ctxS.arc(sx,sy,r,0,2*Math.PI); ctxS.fill();
-      }
-      requestAnimationFrame(drawStars);
-    }
-    initStars(); drawStars();
-
-    // ===== Toggle Backgrounds =====
-    const toggleBtn = document.getElementById('toggleBg');
-    const canvases = [matrixCanvas, gridCanvas, starsCanvas];
-    let current = 0;
-    toggleBtn.addEventListener('click', e=>{
-      e.preventDefault();
-      canvases[current].classList.remove('active');
-      current = (current+1)%canvases.length;
-      canvases[current].classList.add('active');
+    setInterval(draw, 40);
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
     });
   </script>
 </body>
