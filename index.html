@@ -5,165 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma – Portfolio</title>
   <meta name="description" content="Portfolio and resume of Sawan Sharma, Software Test Engineer (SDET). Download resume as PDF." />
-  <meta property="og:title" content="Sawan Sharma – Portfolio" />
-  <meta property="og:description" content="Software Test Engineer specializing in mobile & web automation. Download resume as PDF." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧪</text></svg>">
-
   <style>
-    :root{
-      --bg:#0b1020; --panel:#0f172a; --muted:#94a3b8; --text:#e2e8f0;
-      --brand:#22d3ee; --brand2:#60a5fa; --accent:#38bdf8;
+    /* ====== THEME ====== */
+    :root {
+      --bg: #0b0f1e;
+      --panel: rgba(20, 28, 48, 0.75);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --brand: #38bdf8;
+      --brand2: #22d3ee;
+      --glow: 0 0 10px var(--brand), 0 0 20px var(--brand2);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    body{
-      background:linear-gradient(145deg,#0b1020 0%,#111827 100%);
-      color:var(--text);
-      animation: fadeIn 1s ease-in;
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #0b0f1e, #10172a);
+      color: var(--text);
+      overflow-x: hidden;
     }
-    a{color:inherit;text-decoration:none;transition:color .2s}
-    a:hover{color:var(--brand)}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{display:flex;align-items:center;gap:14px}
-    .avatar{
-      width:70px;height:70px;border-radius:20px;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      display:grid;place-items:center;
-      color:#0b1020;font-weight:800;font-size:1.4rem;
-      box-shadow:0 4px 12px rgba(0,0,0,.4);
-    }
-    .name{font-size:1.8rem;font-weight:800;line-height:1.1}
-    .role{color:var(--muted);font-size:1rem;margin-top:4px}
-    .buttons{display:flex;flex-wrap:wrap;gap:12px}
-    .btn{
-      padding:10px 16px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.1);
-      background:#0f172acc;backdrop-filter:blur(6px);
-      transition:all .25s;display:inline-flex;align-items:center;gap:8px;
-      box-shadow:0 2px 6px rgba(0,0,0,.3);
-    }
-    .btn:hover{
-      transform:translateY(-2px) scale(1.02);
-      border-color:var(--brand2);box-shadow:0 4px 12px rgba(0,0,0,.5);
-    }
-    .btn.primary{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#0b1020;font-weight:700;border:none;
-    }
-    .grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:20px}
-    @media(min-width:860px){.grid{grid-template-columns:2fr 1fr}}
-    .card{
-      background:rgba(15,23,42,.6);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:22px;padding:20px;
-      transition:all .3s ease;box-shadow:0 4px 12px rgba(0,0,0,.4);
-    }
-    .card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.5);}
-    h2{margin:0 0 12px;font-size:1.3rem;color:var(--accent)}
-    ul{padding-left:18px;margin:6px 0}
-    li{margin:10px 0;color:#cbd5e1}
-    .pill{
-      display:inline-block;font-size:.82rem;color:#0b1020;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      padding:6px 12px;border-radius:999px;margin:4px 6px 0 0;
-      box-shadow:0 2px 6px rgba(0,0,0,.3);
-    }
-    footer{opacity:.7;text-align:center;margin:28px 0}
-    .small{color:var(--muted);font-size:.9rem;line-height:1.4}
-    .projects{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:640px){.projects{grid-template-columns:1fr 1fr}}
-    .project{
-      padding:16px;border-radius:18px;
-      background:rgba(15,23,42,.55);
-      border:1px solid rgba(255,255,255,.08);
-      transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.3);
-    }
-    .project:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.5);}
-    .project h3{margin:0 0 8px;font-size:1.05rem;color:var(--brand2)}
-    .badge{font-size:.78rem;color:var(--muted)}
-    .nowrap{white-space:nowrap}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9ca3af;font-size:.9rem}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  </style>
+    a {text-decoration:none; color:inherit;}
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Sawan Sharma",
-    "jobTitle":"Software Test Engineer (SDET)",
-    "url":"https://sawanS.github.io/",
-    "sameAs":["https://github.com/sawanS","https://www.linkedin.com/in/sawan-sharma125/"]
-  }
-  </script>
+    /* ====== HERO ====== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #1e293b, #0b0f1e 70%);
+      animation: aurora 15s infinite alternate;
+    }
+    @keyframes aurora {
+      0% {background-position: 0% 50%;}
+      100% {background-position: 100% 50%;}
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(to right, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .buttons {margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap;}
+    .btn {
+      padding: 12px 20px;
+      border-radius: 14px;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 10px rgba(0,0,0,.5);
+      transition: all .3s;
+    }
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--glow);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      color: #0b1020;
+      font-weight: 700;
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: var(--brand2);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.5);
+      transition: all .3s ease;
+    }
+    .card:hover {transform: translateY(-4px); box-shadow: var(--glow);}
+    .skills {display:flex; flex-wrap:wrap; gap:12px; justify-content:center;}
+    .pill {
+      background: linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#0b1020; padding:8px 16px; border-radius:999px;
+      font-size: .9rem; font-weight:600;
+      box-shadow:0 2px 8px rgba(0,0,0,.3);
+    }
+
+    /* ====== PROJECTS ====== */
+    .projects {
+      display:grid; grid-template-columns: 1fr; gap:20px;
+    }
+    @media(min-width:720px) {.projects{grid-template-columns:1fr 1fr;}}
+    .project {
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 20px;
+      transition: .3s;
+    }
+    .project:hover {box-shadow: var(--glow);}
+    .project h3 {margin-bottom:8px; color: var(--brand);}
+    .badge {font-size:.8rem; color: var(--muted);}
+    .project p {margin-top:10px; color:#cbd5e1; font-size:.9rem;}
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="avatar">SS</div>
-        <div>
-          <div class="name">Sawan Sharma</div>
-          <div class="role">Software Test Engineer · Mobile/Web Automation · Selenium · Appium · TestNG</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a class="btn primary" href="SawanSharma_Resume_8+YEO.pdf" download>⬇️ Download Resume (PDF)</a>
-        <a class="btn" href="mailto:sharmasawan125@gmail.com">✉️ Email</a>
-        <a class="btn" href="https://github.com/sawanS" target="_blank" rel="noopener">💻 GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank" rel="noopener">🔗 LinkedIn</a>
-      </div>
-    </header>
-
-    <main class="grid">
-      <section class="card">
-        <h2>About</h2>
-        <p class="small">SDET with 8+ years across manual and automation testing. Focused on Appium (Android/iOS), Selenium WebDriver, TestNG, REST Assured, CI with Azure Pipelines, and Allure reporting. Passionate about building stable frameworks and catching flaky tests before they ship.</p>
-        <div>
-          <span class="pill">Selenium</span>
-          <span class="pill">Appium</span>
-          <span class="pill">TestNG</span>
-          <span class="pill">REST Assured</span>
-          <span class="pill">Azure DevOps</span>
-          <span class="pill">Allure</span>
-          <span class="pill">Java</span>
-        </div>
-      </section>
-
-      <aside class="card">
-        <h2>Details</h2>
-        <ul>
-          <li><strong>Location:</strong> India</li>
-          <li><strong>Mobile:</strong> +91-7387125154</li>
-          <li><strong>Email:</strong> <span class="mono">sharmasawan125@gmail.com</span></li>
-          <li><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</li>
-          <li><strong>Resume:</strong> <span class="nowrap">/resume.pdf</span> (direct download)</li>
-        </ul>
-      </aside>
-    </main>
-
-    <section class="card" style="margin-top:20px">
-      <h2>Highlighted Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Appium Test Framework - Kotak Securities</h3>
-          <div class="badge">Java · TestNG · Android & iOS</div>
-          <p class="small">Multi-device parallel runs using dynamic capabilities (<span class="mono">systemPort</span>, <span class="mono">wdaLocalPort</span>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
-          <a class="btn" href="#">🔗 View Repo</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p class="small">© <span id="year"></span> Sawan Sharma · Built with GitHub Pages</p>
-    </footer>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Sawan Sharma</h1>
+    <p>Software Test Engineer (SDET) · Selenium · Appium · API Testing</p>
+    <div class="buttons">
+      <a class="btn primary" href="SawanSharma_Resume.pdf" download>⬇️ Download Resume</a>
+      <a class="btn" href="mailto:sharmasawan125@gmail.com">✉️ Email</a>
+      <a class="btn" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
+    </div>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- ABOUT -->
+  <section>
+    <h2>About Me</h2>
+    <div class="card">
+      <p>SDET with 8+ years across manual and automation testing. Focused on Appium (Android/iOS), Selenium WebDriver, TestNG, REST Assured, CI with Azure Pipelines, and Allure reporting. Passionate about building stable frameworks and catching flaky tests before they ship.</p>
+      <div class="skills">
+        <span class="pill">Selenium</span>
+        <span class="pill">Appium</span>
+        <span class="pill">TestNG</span>
+        <span class="pill">REST Assured</span>
+        <span class="pill">Azure DevOps</span>
+        <span class="pill">Allure</span>
+        <span class="pill">Java</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>Highlighted Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Appium Test Framework - Kotak Securities</h3>
+        <div class="badge">Java · TestNG · Android & iOS</div>
+        <p>Multi-device parallel runs using dynamic capabilities (<code>systemPort</code>, <code>wdaLocalPort</code>) and Azure Pipeline integration with Allure HTML reports and Slack uploads.</p>
+      </div>
+      <div class="project">
+        <h3>API Test Automation Suite</h3>
+        <div class="badge">REST Assured · Postman · Swagger</div>
+        <p>Automated REST API validations with schema checks, CI integration, and regression coverage ensuring API reliability and scalability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Sawan Sharma · Built with ❤️ on GitHub Pages
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
