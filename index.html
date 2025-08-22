@@ -17,70 +17,92 @@
       background: #0d0d0d;
       color: #e0e0e0;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Glow Animations */
+    @keyframes neonGlow {
+      0%, 100% { text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff; }
+      50% { text-shadow: 0 0 20px #ff007c, 0 0 30px #ff007c; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     /* Header */
     header {
       text-align: center;
-      padding: 2.5rem 1rem;
-      background: linear-gradient(135deg, #141e30, #243b55);
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       border-bottom: 1px solid #1c1c1c;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      color: #00f7ff;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #00f7ff, #ff007c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: neonGlow 3s infinite alternate;
     }
 
     header h2 {
       font-size: 1rem;
       color: #aaa;
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
     }
 
     .buttons {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .buttons a {
       display: inline-block;
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
+      margin: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
       text-decoration: none;
-      background: #00f7ff;
-      color: #0e0e0e;
+      background: linear-gradient(90deg, #00f7ff, #ff007c);
+      color: #fff;
       font-weight: 600;
       font-size: 0.9rem;
       transition: 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 247, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 247, 255, 0.3);
     }
 
     .buttons a:hover {
-      background: #00c6d6;
-      transform: translateY(-2px);
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255, 0, 124, 0.5);
     }
 
     /* Sections */
     section {
-      max-width: 850px;
+      max-width: 900px;
       margin: 2rem auto;
-      padding: 1.5rem;
-      border-radius: 12px;
-      background: #141414;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      padding: 2rem;
+      border-radius: 15px;
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease;
     }
 
     section h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: #ff007c;
-      border-left: 4px solid #00f7ff;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #00f7ff;
+      border-left: 4px solid #ff007c;
       padding-left: 0.6rem;
     }
 
     section p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #ccc;
     }
 
@@ -91,49 +113,53 @@
 
     .skills span {
       display: inline-block;
-      margin: 0.25rem;
-      padding: 0.35rem 0.8rem;
+      margin: 0.3rem;
+      padding: 0.4rem 1rem;
       border-radius: 20px;
-      background: #1a1a1a;
+      background: rgba(26, 26, 26, 0.8);
       border: 1px solid #00f7ff;
       color: #00f7ff;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       transition: 0.3s;
+      animation: float 3s ease-in-out infinite;
     }
 
     .skills span:hover {
       background: #00f7ff;
       color: #0e0e0e;
+      box-shadow: 0 0 10px #00f7ff;
     }
 
     /* Projects */
     .project {
-      margin-bottom: 1.2rem;
-      padding: 1rem;
-      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      padding: 1.2rem;
+      border-radius: 12px;
       background: #1a1a1a;
       transition: 0.3s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
 
     .project:hover {
-      background: #222;
-      transform: translateY(-2px);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,247,255,0.4);
     }
 
     .project h4 {
-      font-size: 1.05rem;
-      color: #00f7ff;
-      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      color: #ff007c;
+      margin-bottom: 0.5rem;
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 1.5rem 1rem;
-      font-size: 0.8rem;
-      color: #777;
+      font-size: 0.9rem;
+      color: #aaa;
       border-top: 1px solid #1c1c1c;
-      margin-top: 2rem;
+      margin-top: 3rem;
+      background: linear-gradient(90deg, #00f7ff33, #ff007c33);
     }
   </style>
 </head>
@@ -143,10 +169,10 @@
     <h1>&lt; Sawan Sharma | SDET &gt;</h1>
     <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
     <div class="buttons">
-      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
-      <a href="mailto:sharmasawan125@gmail.com">Email</a>
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
+      <a href="mailto:sharmasawan125@gmail.com">✉ Email</a>
+      <a href="https://github.com/" target="_blank">⚡ GitHub</a>
+      <a href="https://linkedin.com/" target="_blank">💼 LinkedIn</a>
     </div>
   </header>
 
@@ -189,7 +215,7 @@
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Sawan Sharma | Built with ❤️ and clean code.
+    &copy; 2025 Sawan Sharma | Built with ⚡ passion & clean code.
   </footer>
 </body>
 </html>
