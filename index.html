@@ -1,239 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sawan Sharma – Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sawan Sharma | SDET</title>
   <style>
-    /* ===== Base Styles ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f1f5f9;
-      line-height: 1.6;
-      transition: background .4s, color .4s;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
+      background: #000;
+      color: #0ff;
+      font-family: "Courier New", monospace;
+      margin: 0;
       padding: 20px;
+      line-height: 1.6;
     }
-
-    /* ===== Animations ===== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-    }
-    .delay-1 { animation-delay: 0.3s; }
-    .delay-2 { animation-delay: 0.6s; }
-    .delay-3 { animation-delay: 0.9s; }
-
-    /* Typing effect */
-    .typing {
-      font-size: 2.8rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      border-right: 3px solid #60a5fa;
-      white-space: nowrap;
-      width: 0;
-      overflow: hidden;
-      animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
-    }
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { border-color: transparent } }
-
-    /* ===== Glass Card Style ===== */
-    section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 28px;
-      margin: 28px 0;
-      animation: fadeInUp 0.8s forwards;
-      transition: transform .3s, box-shadow .3s;
-    }
-    section:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(96,165,250,0.2);
+    h1 {
+      color: #00ff66;
+      font-size: 2rem;
+      text-shadow: 0 0 8px #00ff66;
     }
     h2 {
-      font-size: 1.5rem;
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
+      color: #ff00cc;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      text-shadow: 0 0 6px #ff00cc;
     }
-
-    /* ===== Header ===== */
-    header {
-      text-align: center;
-      padding: 70px 20px 40px;
+    p {
+      margin: 10px 0;
     }
-    header p {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      margin-top: 12px;
-    }
-
-    /* ===== Buttons ===== */
-    .buttons {
-      margin-top: 25px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
+    .button-container {
+      margin: 20px 0;
     }
     .btn {
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: .95rem;
+      border: 1px solid #0ff;
+      padding: 8px 16px;
+      margin: 5px;
+      color: #0ff;
       text-decoration: none;
-      transition: all .3s;
+      display: inline-block;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #0ff;
+      transition: 0.2s;
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      color: #0f172a;
+    .btn:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 15px #0ff;
+    }
+    .section {
+      border: 1px solid #0ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 0 12px #0ff inset;
+    }
+    .tags {
+      margin-top: 10px;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid #0ff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      margin: 5px;
+      color: #0ff;
+      box-shadow: 0 0 5px #0ff;
+      font-size: 0.9rem;
+    }
+    .highlight {
       font-weight: bold;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 0 15px rgba(167,139,250,0.5);
-    }
-    .btn-outline {
-      border: 1px solid #60a5fa;
-      color: #60a5fa;
-    }
-    .btn-outline:hover {
-      background: #60a5fa;
-      color: #0f172a;
-      transform: translateY(-3px);
-    }
-
-    /* ===== Skills ===== */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .skill {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: .9rem;
-      transition: transform .3s, background .3s, box-shadow .3s;
-    }
-    .skill:hover {
-      transform: scale(1.08);
-      background: #334155;
-      box-shadow: 0 0 10px rgba(96,165,250,0.3);
-    }
-
-    /* ===== Projects ===== */
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    @media(min-width: 700px) {
-      .projects { grid-template-columns: 1fr 1fr; }
-    }
-    .project {
-      border-radius: 12px;
-      padding: 18px;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(96,165,250,0.3);
-    }
-    .project h3 {
-      color: #60a5fa;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      margin: 40px 0;
-      font-size: .85rem;
-      color: #94a3b8;
+      color: #0ff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="fade-in">
-      <h1 class="typing">Sawan Sharma | SDET</h1>
-      <p>Software Test Engineer · Automation · Selenium · Appium</p>
+  <h1>&gt; Sawan Sharma | SDET</h1>
+  <p>Software Test Engineer · Automation · Selenium · Appium · TestNG</p>
 
-      <div class="buttons fade-in delay-1">
-        <a class="btn btn-primary" href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
-        <a class="btn btn-outline" href="mailto:sharmasawan125@gmail.com">✉ Email</a>
-        <a class="btn btn-outline" href="https://github.com/sawanS" target="_blank">💻 GitHub</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/sawan-sharma125/" target="_blank">🔗 LinkedIn</a>
-      </div>
-    </header>
-
-    <section class="fade-in delay-1">
-      <h2>About Me</h2>
-      <p>Software Development Engineer in Test with 8+ years of experience across manual and automation testing. Skilled in building robust automation frameworks using Appium, Selenium WebDriver, TestNG, REST Assured, and CI/CD pipelines with Azure DevOps. Experienced in reporting with Allure and test strategy planning.</p>
-    </section>
-
-    <section class="fade-in delay-2">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill">Selenium</div>
-        <div class="skill">Appium</div>
-        <div class="skill">TestNG</div>
-        <div class="skill">REST Assured</div>
-        <div class="skill">Azure DevOps</div>
-        <div class="skill">Allure Reports</div>
-        <div class="skill">Java</div>
-      </div>
-    </section>
-
-    <section class="fade-in delay-3">
-      <h2>Highlighted Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Mobile Automation Framework</h3>
-          <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
-        </div>
-        <div class="project">
-          <h3>Web Automation Framework</h3>
-          <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="fade-in delay-3">
-      <h2>Contact</h2>
-      <p><strong>Location:</strong> India</p>
-      <p><strong>Mobile:</strong> +91-7387125154</p>
-      <p><strong>Email:</strong> sharmasawan125@gmail.com</p>
-      <p><strong>Open to:</strong> SDET · QA Automation · Senior QA Automation</p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Sawan Sharma
-    </footer>
+  <div class="button-container">
+    <a href="#" class="btn">⬇ Resume</a>
+    <a href="mailto:sharmasawan125@gmail.com" class="btn">✉ Email</a>
+    <a href="https://github.com/" class="btn">🐙 GitHub</a>
+    <a href="https://linkedin.com/" class="btn">🔗 LinkedIn</a>
   </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="section">
+    <h2>ABOUT</h2>
+    <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
+    <div class="tags">
+      <span class="tag">Selenium</span>
+      <span class="tag">Appium</span>
+      <span class="tag">TestNG</span>
+      <span class="tag">REST Assured</span>
+      <span class="tag">Azure DevOps</span>
+      <span class="tag">Allure</span>
+      <span class="tag">Java</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>DETAILS</h2>
+    <p><span class="highlight">Location:</span> India</p>
+    <p><span class="highlight">Mobile:</span> +91-7387125154</p>
+    <p><span class="highlight">Email:</span> sharmasawan125@gmail.com</p>
+    <p><span class="highlight">Open to:</span> SDET · QA Automation · Senior QA Automation</p>
+  </div>
+
+  <div class="section">
+    <h2>HIGHLIGHTED PROJECTS</h2>
+    <p><span class="highlight">Appium Test Framework - Kotak Securities</span></p>
+    <p>Multi-device parallel runs using dynamic capabilities (systemPort, wdaLocalPort) and Azure Pipeline integration with Allure HTML reports.</p>
+  </div>
 </body>
 </html>
