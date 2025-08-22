@@ -5,96 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sawan Sharma | SDET Portfolio</title>
   <style>
-    /* General Reset */
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, sans-serif;
     }
 
     body {
-      background: #0e0e0e;
+      background: #0d0d0d;
       color: #e0e0e0;
       line-height: 1.6;
     }
 
+    /* Header */
     header {
       text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(to right, #141e30, #243b55);
+      padding: 2.5rem 1rem;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      border-bottom: 1px solid #1c1c1c;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.2rem;
       color: #00f7ff;
-      margin-bottom: 0.5rem;
     }
 
     header h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: #bbbbbb;
+      font-size: 1rem;
+      color: #aaa;
+      margin-top: 0.5rem;
     }
 
     .buttons {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .buttons a {
       display: inline-block;
-      margin: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
       text-decoration: none;
       background: #00f7ff;
       color: #0e0e0e;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 0.9rem;
       transition: 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 247, 255, 0.2);
     }
 
     .buttons a:hover {
       background: #00c6d6;
-      transform: scale(1.05);
+      transform: translateY(-2px);
     }
 
+    /* Sections */
     section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #141414;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     section h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
       color: #ff007c;
-      border-bottom: 2px solid #00f7ff;
-      display: inline-block;
-      padding-bottom: 0.3rem;
+      border-left: 4px solid #00f7ff;
+      padding-left: 0.6rem;
+    }
+
+    section p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* Skills */
+    .skills {
+      margin-top: 1rem;
     }
 
     .skills span {
       display: inline-block;
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 20px;
-      background: #1e1e1e;
+      background: #1a1a1a;
       border: 1px solid #00f7ff;
       color: #00f7ff;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      transition: 0.3s;
     }
 
-    .details p, .projects p {
-      margin-bottom: 0.8rem;
+    .skills span:hover {
+      background: #00f7ff;
+      color: #0e0e0e;
     }
 
+    /* Projects */
+    .project {
+      margin-bottom: 1.2rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #1a1a1a;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      background: #222;
+      transform: translateY(-2px);
+    }
+
+    .project h4 {
+      font-size: 1.05rem;
+      color: #00f7ff;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #888;
-      border-top: 1px solid #222;
-      background: #111;
+      padding: 1.5rem 1rem;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #1c1c1c;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -104,7 +143,7 @@
     <h1>&lt; Sawan Sharma | SDET &gt;</h1>
     <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
     <div class="buttons">
-      <a href="#">Resume</a>
+      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
       <a href="mailto:sharmasawan125@gmail.com">Email</a>
       <a href="https://github.com/" target="_blank">GitHub</a>
       <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
@@ -127,27 +166,25 @@
   </section>
 
   <!-- Details -->
-  <section class="details">
+  <section>
     <h3>Details</h3>
-    <p><b>Location:</b> India</p>
-    <p><b>Mobile:</b> +91-7387125154</p>
-    <p><b>Email:</b> sharmasawan125@gmail.com</p>
-    <p><b>Open to:</b> SDET · QA Automation · Senior QA Automation</p>
+    <p><b>📍 Location:</b> India</p>
+    <p><b>📞 Mobile:</b> +91-7387125154</p>
+    <p><b>✉️ Email:</b> sharmasawan125@gmail.com</p>
+    <p><b>💼 Open to:</b> SDET · QA Automation · Senior QA Automation</p>
   </section>
 
   <!-- Projects -->
-  <section class="projects">
-          <h2>Highlighted Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Mobile Automation Framework</h3>
-          <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
-        </div>
-        <div class="project">
-          <h3>Web Automation Framework</h3>
-          <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
-        </div>
-      </div>
+  <section>
+    <h3>Highlighted Projects</h3>
+    <div class="project">
+      <h4>📱 Mobile Automation Framework</h4>
+      <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
+    </div>
+    <div class="project">
+      <h4>💻 Web Automation Framework</h4>
+      <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
+    </div>
   </section>
 
   <!-- Footer -->
