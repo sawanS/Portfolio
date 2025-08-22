@@ -14,93 +14,94 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      background: #0d0d0d;
       color: #e0e0e0;
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Neon Glow Effect */
-    .glow {
-      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
     }
 
     /* Header */
     header {
       text-align: center;
-      padding: 3rem 1rem;
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #222;
-      box-shadow: 0 4px 20px rgba(0, 247, 255, 0.2);
+      padding: 2.5rem 1rem;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      border-bottom: 1px solid #1c1c1c;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
+    }
+
+    .glow {
       color: #00f7ff;
-      animation: fadeInDown 1.5s ease;
+      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+      animation: pulseGlow 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+        color: #00f7ff;
+      }
+      50% {
+        text-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff, 0 0 45px #00f7ff;
+        color: #66fcf1;
+      }
+      100% {
+        text-shadow: 0 0 25px #00f7ff, 0 0 50px #00f7ff, 0 0 70px #00f7ff;
+        color: #00f7ff;
+      }
     }
 
     header h2 {
-      font-size: 1.1rem;
-      color: #bbb;
-      margin-top: 0.8rem;
-      animation: fadeInUp 2s ease;
+      font-size: 1rem;
+      color: #aaa;
+      margin-top: 0.5rem;
     }
 
-    /* Buttons */
     .buttons {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .buttons a {
       display: inline-block;
-      margin: 0.4rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
       text-decoration: none;
-      background: linear-gradient(135deg, #00f7ff, #007a80);
+      background: #00f7ff;
       color: #0e0e0e;
       font-weight: 600;
       font-size: 0.9rem;
       transition: 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 247, 255, 0.4);
+      box-shadow: 0 2px 6px rgba(0, 247, 255, 0.2);
     }
 
     .buttons a:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 247, 255, 0.6);
+      background: #00c6d6;
+      transform: translateY(-2px);
     }
 
     /* Sections */
     section {
-      max-width: 900px;
+      max-width: 850px;
       margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 16px;
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-      transition: 0.3s;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,247,255,0.25);
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #141414;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
 
     section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
       color: #ff007c;
-      border-left: 5px solid #00f7ff;
-      padding-left: 0.8rem;
+      border-left: 4px solid #00f7ff;
+      padding-left: 0.6rem;
     }
 
     section p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #ccc;
-      margin-bottom: 0.5rem;
     }
 
     /* Skills */
@@ -110,66 +111,49 @@
 
     .skills span {
       display: inline-block;
-      margin: 0.3rem;
-      padding: 0.45rem 1rem;
+      margin: 0.25rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 20px;
-      background: rgba(0, 247, 255, 0.1);
+      background: #1a1a1a;
       border: 1px solid #00f7ff;
       color: #00f7ff;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       transition: 0.3s;
     }
 
     .skills span:hover {
       background: #00f7ff;
       color: #0e0e0e;
-      box-shadow: 0 0 12px #00f7ff;
     }
 
     /* Projects */
     .project {
-      margin-bottom: 1.5rem;
-      padding: 1.2rem;
-      border-radius: 10px;
-      background: rgba(30, 30, 30, 0.9);
-      border-left: 3px solid #00f7ff;
+      margin-bottom: 1.2rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #1a1a1a;
       transition: 0.3s;
     }
 
     .project:hover {
-      transform: translateX(8px);
-      box-shadow: 0 4px 15px rgba(0,247,255,0.3);
+      background: #222;
+      transform: translateY(-2px);
     }
 
     .project h4 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #00f7ff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
+      padding: 1.5rem 1rem;
+      font-size: 0.8rem;
       color: #777;
-      margin-top: 2rem;
       border-top: 1px solid #1c1c1c;
-    }
-
-    footer span {
-      color: #00f7ff;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -179,10 +163,10 @@
     <h1 class="glow">&lt; Sawan Sharma | SDET &gt;</h1>
     <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
     <div class="buttons">
-      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Resume</a>
-      <a href="mailto:sharmasawan125@gmail.com">✉ Email</a>
-      <a href="https://github.com/" target="_blank">💻 GitHub</a>
-      <a href="https://linkedin.com/" target="_blank">🔗 LinkedIn</a>
+      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
+      <a href="mailto:sharmasawan125@gmail.com">Email</a>
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
     </div>
   </header>
 
@@ -225,7 +209,7 @@
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 <span>Sawan Sharma</span> | Built with ❤️ and clean code.
+    &copy; 2025 Sawan Sharma | Built with ❤️ and clean code.
   </footer>
 </body>
 </html>
