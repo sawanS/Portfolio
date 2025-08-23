@@ -42,42 +42,57 @@
 
   header {
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     position: relative;
   }
 
   header h1 {
+    font-weight: 900;
     font-size: 3.5rem;
-    font-weight: 700;
-    color: #00e5ff;
-    position: relative;
-    letter-spacing: 0.1rem;
-    animation: neonPulse 2.5s ease-in-out infinite alternate;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #00f7ff, #0081a7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px #00f7ff99);
   }
 
-  @keyframes neonPulse {
-    0%, 100% {
-      text-shadow:
-        0 0 6px #00e5ff,
-        0 0 12px #00e5ff,
-        0 0 24px #00e5ff,
-        0 0 36px #00e5ff;
-    }
-    50% {
-      text-shadow:
-        0 0 12px #00ffff,
-        0 0 24px #00ffff,
-        0 0 36px #00ffff,
-        0 0 48px #00ffff;
-    }
+  .name {
+    display: block;
+    letter-spacing: 0.15rem;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1.7rem;
+    letter-spacing: 0.2rem;
+    position: relative;
+    margin-top: 0.2rem;
+  }
+
+  /* Animated underline for title */
+  .title::after {
+    content: '';
+    display: block;
+    margin: 0.75rem auto 0;
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, #00f7ff, #0081a7);
+    border-radius: 10px;
+    animation: slideIn 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes slideIn {
+    0% {width: 30px; opacity: 0.5;}
+    100% {width: 60px; opacity: 1;}
   }
 
   header h2 {
     font-weight: 400;
     font-size: 1.2rem;
-    color: #a2d6e8cc;
-    margin: 0.5rem 0 1.5rem 0;
-    letter-spacing: 0.05rem;
+    color: #7db4c9;
+    margin-top: 1rem;
+    letter-spacing: 0.11rem;
+    font-style: italic;
   }
 
   .buttons {
@@ -85,6 +100,7 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 1.8rem;
   }
 
   .buttons a {
@@ -234,8 +250,12 @@
 </head>
 <body>
 <div class="container">
+
   <header>
-    <h1>Sawan Sharma</h1>
+    <h1>
+      <span class="name">Sawan Sharma</span>
+      <span class="title">SDET · Senior QA Automation Engineer</span>
+    </h1>
     <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
     <div class="buttons">
       <a href="SawanSharma_Resume_8+YEO.pdf" download><span>⬇ Download Resume</span></a>
@@ -282,6 +302,7 @@
   <footer>
     &copy; 2025 Sawan Sharma | Built with ❤️ and creative CSS.
   </footer>
+
 </div>
 </body>
 </html>
