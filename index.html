@@ -1,255 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sawan Sharma | SDET Portfolio</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sawan Sharma | SDET Portfolio</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  body {
+    background: linear-gradient(270deg, #000428, #004e92, #000428);
+    background-size: 600% 600%;
+    animation: gradientMove 20s ease infinite;
+    color: #f0f0f0;
+    scroll-behavior: smooth;
+  }
+
+  @keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 3rem auto 5rem auto;
+    padding: 2rem;
+    background: rgba(16, 25, 40, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+  }
+
+  header {
+    text-align: center;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #00e5ff;
+    position: relative;
+    letter-spacing: 0.1rem;
+    animation: neonPulse 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes neonPulse {
+    0%, 100% {
+      text-shadow:
+        0 0 6px #00e5ff,
+        0 0 12px #00e5ff,
+        0 0 24px #00e5ff,
+        0 0 36px #00e5ff;
     }
-
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f1f1f1;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
+    50% {
+      text-shadow:
+        0 0 12px #00ffff,
+        0 0 24px #00ffff,
+        0 0 36px #00ffff,
+        0 0 48px #00ffff;
     }
+  }
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: rgba(25, 31, 39, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
-      padding: 2.5rem 3rem;
-      backdrop-filter: blur(10px);
-    }
+  header h2 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #a2d6e8cc;
+    margin: 0.5rem 0 1.5rem 0;
+    letter-spacing: 0.05rem;
+  }
 
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .buttons a {
+    background: transparent;
+    border: 2.5px solid #00e5ff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 35px;
+    color: #00e5ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .buttons a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00e5ff;
+    transform: skewX(-20deg);
+    transition: all 0.4s ease;
+    z-index: 0;
+  }
+
+  .buttons a:hover::before {
+    left: 100%;
+  }
+
+  .buttons a:hover {
+    color: #0a1f28;
+    border-color: transparent;
+    box-shadow: 0 0 25px #00e5ff60;
+  }
+
+  .buttons a span {
+    position: relative;
+    z-index: 1;
+  }
+
+  section {
+    background: #102030cc;
+    backdrop-filter: saturate(180%) blur(10px);
+    margin-bottom: 2.5rem;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 15px 25px #001e35aa;
+    clip-path: polygon(0 0, 100% 3%, 100% 97%, 0 100%);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  section:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 60px #00e5ff99;
+  }
+
+  section h3 {
+    font-size: 1.8rem;
+    color: #00e5ff;
+    margin-bottom: 1.2rem;
+    border-bottom: 3px solid #00a2cc;
+    padding-bottom: 0.3rem;
+  }
+
+  p {
+    font-size: 1rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.7;
+    color: #d1e8f8cc;
+  }
+
+  .skills {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .skills span {
+    background: #1e2a3a;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #aabbccdd;
+    border: 1.5px solid #356b9b;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+    cursor: default;
+    user-select: none;
+  }
+
+  .skills span:hover {
+    background-color: #00e5ff;
+    color: #102030;
+    border-color: #00e5ff;
+  }
+
+  .project {
+    background: #0e2840;
+    border-radius: 12px;
+    padding: 1.3rem 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 12px 20px #00000088;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: default;
+  }
+
+  .project:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 30px 60px #00e5ffaa;
+  }
+
+  .project h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #00aaff;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+    color: #82a8bfaa;
+    padding-bottom: 1.5rem;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    section {
+      padding: 1.5rem 1.8rem;
+      clip-path: none;
     }
 
     header h1 {
-      font-weight: 600;
-      font-size: 3rem;
-      color: #00f7ff;
-      letter-spacing: 0.1rem;
-      position: relative;
+      font-size: 2.6rem;
     }
-
-    header h1::after {
-      content: '<>';
-      position: absolute;
-      right: -2.8rem;
-      top: 0;
-      font-weight: 300;
-      color: #00ccff;
-      animation: glowPulse 2s infinite alternate;
-      opacity: 0.8;
-    }
-
-    @keyframes glowPulse {
-      0% {text-shadow: 0 0 6px #00f7ff;}
-      100% {text-shadow: 0 0 14px #00fff8;}
-    }
-
-    header h2 {
-      font-weight: 300;
-      font-size: 1.1rem;
-      color: #8dcfff;
-      margin-top: 0.3rem;
-      letter-spacing: 0.05rem;
-    }
-
-    .buttons {
-      margin-top: 1.3rem;
-    }
-
-    .buttons a {
-      display: inline-block;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1.3rem;
-      border-radius: 30px;
-      background: #00f7ff;
-      color: #14212f;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 247, 255, 0.4);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .buttons a:hover,
-    .buttons a:focus {
-      background: #00c9d6;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 201, 214, 0.7);
-      outline: none;
-    }
-
-    section {
-      background: #19212c;
-      border-radius: 12px;
-      padding: 1.8rem 2.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    section h3 {
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: #00e5ff;
-      padding-bottom: 0.5rem;
-      border-left: 6px solid #00f7ff;
-      margin-bottom: 1rem;
-    }
-
-    section p, section li {
-      font-weight: 300;
-      line-height: 1.6;
-      font-size: 1rem;
-      color: #d1e8f8;
-    }
-
-    .skills {
-      padding-top: 0.8rem;
-    }
-
-    .skills span {
-      display: inline-block;
-      margin: 0.3rem 0.35rem 0.3rem 0;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      background-color: #00303f;
-      border: 1.8px solid #00f7ff;
-      font-weight: 500;
-      color: #00f7ff;
-      font-size: 0.9rem;
-      cursor: default;
-      transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-    }
-
-    .skills span:hover {
-      background-color: #00f7ff;
-      color: #19212c;
-    }
-
-    .project {
-      background: #0b1f2e;
-      padding: 1rem 1.6rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 247, 255, 0.7);
-    }
-
-    .project h4 {
-      font-weight: 600;
-      color: #00f7ff;
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-weight: 300;
-      font-size: 0.9rem;
-      color: #aaa;
-      padding: 1.2rem 0;
-      border-top: 1.2px solid #0e3345;
-      user-select: none;
-      letter-spacing: 0.03rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container {
-        padding: 2rem 1.2rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      section {
-        padding: 1.2rem 1.5rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <h1>Sawan Sharma</h1>
-      <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
-      <div class="buttons">
-        <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
-        <a href="mailto:sharmasawan125@gmail.com">Email</a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </header>
+<div class="container">
+  <header>
+    <h1>Sawan Sharma</h1>
+    <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
+    <div class="buttons">
+      <a href="SawanSharma_Resume_8+YEO.pdf" download><span>⬇ Download Resume</span></a>
+      <a href="mailto:sharmasawan125@gmail.com"><span>Email</span></a>
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><span>GitHub</span></a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span></a>
+    </div>
+  </header>
 
-    <!-- About -->
-    <section>
-      <h3>About</h3>
-      <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
-      <div class="skills" aria-label="Skills list">
-        <span>Selenium</span>
-        <span>Appium</span>
-        <span>TestNG</span>
-        <span>REST Assured</span>
-        <span>Azure DevOps</span>
-        <span>Allure</span>
-        <span>Java</span>
-      </div>
-    </section>
+  <section>
+    <h3>About</h3>
+    <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
+    <div class="skills" aria-label="Skills list">
+      <span>Selenium</span>
+      <span>Appium</span>
+      <span>TestNG</span>
+      <span>REST Assured</span>
+      <span>Azure DevOps</span>
+      <span>Allure</span>
+      <span>Java</span>
+    </div>
+  </section>
 
-    <!-- Details -->
-    <section>
-      <h3>Details</h3>
-      <p><strong>📍 Location:</strong> India</p>
-      <p><strong>📞 Mobile:</strong> +91-7387125154</p>
-      <p><strong>✉️ Email:</strong> sharmasawan125@gmail.com</p>
-      <p><strong>💼 Open to:</strong> SDET · QA Automation · Senior QA Automation</p>
-    </section>
+  <section>
+    <h3>Details</h3>
+    <p><strong>📍 Location:</strong> India</p>
+    <p><strong>📞 Mobile:</strong> +91-7387125154</p>
+    <p><strong>✉️ Email:</strong> sharmasawan125@gmail.com</p>
+    <p><strong>💼 Open to:</strong> SDET · QA Automation · Senior QA Automation</p>
+  </section>
 
-    <!-- Projects -->
-    <section>
-      <h3>Highlighted Projects</h3>
-      <div class="project" tabindex="0" role="region" aria-label="Mobile Automation Framework project">
-        <h4>📱 Mobile Automation Framework</h4>
-        <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
-      </div>
-      <div class="project" tabindex="0" role="region" aria-label="Web Automation Framework project">
-        <h4>💻 Web Automation Framework</h4>
-        <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
-      </div>
-    </section>
+  <section>
+    <h3>Highlighted Projects</h3>
+    <div class="project" tabindex="0" role="region" aria-label="Mobile Automation Framework project">
+      <h4>📱 Mobile Automation Framework</h4>
+      <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
+    </div>
+    <div class="project" tabindex="0" role="region" aria-label="Web Automation Framework project">
+      <h4>💻 Web Automation Framework</h4>
+      <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 Sawan Sharma | Built with ❤️ and clean code.
-    </footer>
-  </div>
+  <footer>
+    &copy; 2025 Sawan Sharma | Built with ❤️ and creative CSS.
+  </footer>
+</div>
 </body>
 </html>
