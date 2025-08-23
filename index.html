@@ -1,214 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sawan Sharma | SDET Portfolio</title>
   <style>
-    /* Reset */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", Tahoma, sans-serif;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #0d0d0d;
-      color: #e0e0e0;
-      line-height: 1.6;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f1f1f1;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
     }
 
-    /* Header */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(25, 31, 39, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      padding: 2.5rem 3rem;
+      backdrop-filter: blur(10px);
+    }
+
     header {
       text-align: center;
-      padding: 2.5rem 1rem;
-      background: linear-gradient(135deg, #141e30, #243b55);
-      border-bottom: 1px solid #1c1c1c;
+      margin-bottom: 2rem;
     }
 
     header h1 {
-      font-size: 2.4rem;
-    }
-
-    .glow {
+      font-weight: 600;
+      font-size: 3rem;
       color: #00f7ff;
-      animation: pulseGlow 2s infinite alternate ease-in-out;
+      letter-spacing: 0.1rem;
+      position: relative;
     }
 
-    @keyframes pulseGlow {
-      0% {
-        text-shadow: 0 0 2px #00f7ff, 0 0 4px #00f7ff;
-        color: #00f7ff;
-      }
-      50% {
-        text-shadow: 0 0 3px #00f7ff, 0 0 6px #00f7ff;
-        color: #66fcf1;
-      }
-      100% {
-        text-shadow: 0 0 2px #00f7ff, 0 0 4px #00f7ff;
-        color: #00f7ff;
-      }
+    header h1::after {
+      content: '<>';
+      position: absolute;
+      right: -2.8rem;
+      top: 0;
+      font-weight: 300;
+      color: #00ccff;
+      animation: glowPulse 2s infinite alternate;
+      opacity: 0.8;
+    }
+
+    @keyframes glowPulse {
+      0% {text-shadow: 0 0 6px #00f7ff;}
+      100% {text-shadow: 0 0 14px #00fff8;}
     }
 
     header h2 {
-      font-size: 1rem;
-      color: #aaa;
-      margin-top: 0.5rem;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: #8dcfff;
+      margin-top: 0.3rem;
+      letter-spacing: 0.05rem;
     }
 
     .buttons {
-      margin-top: 1rem;
+      margin-top: 1.3rem;
     }
 
     .buttons a {
       display: inline-block;
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      text-decoration: none;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1.3rem;
+      border-radius: 30px;
       background: #00f7ff;
-      color: #0e0e0e;
+      color: #14212f;
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 247, 255, 0.2);
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 247, 255, 0.4);
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
-    .buttons a:hover {
-      background: #00c6d6;
-      transform: translateY(-2px);
+    .buttons a:hover,
+    .buttons a:focus {
+      background: #00c9d6;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 201, 214, 0.7);
+      outline: none;
     }
 
-    /* Sections */
     section {
-      max-width: 850px;
-      margin: 2rem auto;
-      padding: 1.5rem;
+      background: #19212c;
       border-radius: 12px;
-      background: #141414;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      padding: 1.8rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
 
     section h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-      color: #ff007c;
-      border-left: 4px solid #00f7ff;
-      padding-left: 0.6rem;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #00e5ff;
+      padding-bottom: 0.5rem;
+      border-left: 6px solid #00f7ff;
+      margin-bottom: 1rem;
     }
 
-    section p {
-      font-size: 0.95rem;
-      color: #ccc;
+    section p, section li {
+      font-weight: 300;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #d1e8f8;
     }
 
-    /* Skills */
     .skills {
-      margin-top: 1rem;
+      padding-top: 0.8rem;
     }
 
     .skills span {
       display: inline-block;
-      margin: 0.25rem;
-      padding: 0.35rem 0.8rem;
+      margin: 0.3rem 0.35rem 0.3rem 0;
+      padding: 0.4rem 1rem;
       border-radius: 20px;
-      background: #1a1a1a;
-      border: 1px solid #00f7ff;
+      background-color: #00303f;
+      border: 1.8px solid #00f7ff;
+      font-weight: 500;
       color: #00f7ff;
-      font-size: 0.8rem;
-      transition: 0.3s;
+      font-size: 0.9rem;
+      cursor: default;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
     }
 
     .skills span:hover {
-      background: #00f7ff;
-      color: #0e0e0e;
+      background-color: #00f7ff;
+      color: #19212c;
     }
 
-    /* Projects */
     .project {
-      margin-bottom: 1.2rem;
-      padding: 1rem;
+      background: #0b1f2e;
+      padding: 1rem 1.6rem;
       border-radius: 8px;
-      background: #1a1a1a;
-      transition: 0.3s;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
     }
 
     .project:hover {
-      background: #222;
-      transform: translateY(-2px);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 247, 255, 0.7);
     }
 
     .project h4 {
-      font-size: 1.05rem;
+      font-weight: 600;
       color: #00f7ff;
-      margin-bottom: 0.4rem;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* Footer */
     footer {
       text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.8rem;
-      color: #777;
-      border-top: 1px solid #1c1c1c;
-      margin-top: 2rem;
+      margin-top: 3rem;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: #aaa;
+      padding: 1.2rem 0;
+      border-top: 1.2px solid #0e3345;
+      user-select: none;
+      letter-spacing: 0.03rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        padding: 2rem 1.2rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 1.2rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1 class="glow">&lt; Sawan Sharma | SDET &gt;</h1>
-    <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
-    <div class="buttons">
-      <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
-      <a href="mailto:sharmasawan125@gmail.com">Email</a>
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section>
-    <h3>About</h3>
-    <p>SDET with 8+ years across manual and automation testing. Expertise in Appium, Selenium WebDriver, TestNG, REST Assured, CI/CD with Azure Pipelines, and Allure reporting.</p>
-    <div class="skills">
-      <span>Selenium</span>
-      <span>Appium</span>
-      <span>TestNG</span>
-      <span>REST Assured</span>
-      <span>Azure DevOps</span>
-      <span>Allure</span>
-      <span>Java</span>
-    </div>
-  </section>
-
-  <!-- Details -->
-  <section>
-    <h3>Details</h3>
-    <p><b>📍 Location:</b> India</p>
-    <p><b>📞 Mobile:</b> +91-7387125154</p>
-    <p><b>✉️ Email:</b> sharmasawan125@gmail.com</p>
-    <p><b>💼 Open to:</b> SDET · QA Automation · Senior QA Automation</p>
-  </section>
-
-  <!-- Projects -->
-  <section>
-    <h3>Highlighted Projects</h3>
-    <div class="project">
-      <h4>📱 Mobile Automation Framework</h4>
-      <p>Designed and implemented a scalable Appium test framework for Kotak Securities, supporting Android & iOS with parallel execution, Azure Pipeline integration, and Slack-based Allure report sharing.</p>
-    </div>
-    <div class="project">
-      <h4>💻 Web Automation Framework</h4>
-      <p>Developed a reusable Selenium framework supporting cross-browser testing, CI/CD pipelines, and detailed dashboards for test reporting.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Sawan Sharma | Built with ❤️ and clean code.
-  </footer>
-</body>
-</html>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Sawan Sharma</h1>
+      <h2>Software Test Engineer · Automation · Selenium · Appium · TestNG</h2>
+      <div class="buttons">
+        <a href="SawanSharma_Resume_8+YEO.pdf" download>⬇ Download Resume</a>
+        <a href="mailto:sharmasawan125@gmail.com">Email</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer
